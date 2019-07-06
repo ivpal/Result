@@ -28,9 +28,9 @@ class ResultTest {
     @Test
     void ofWithFailureSupplier() {
         Supplier<?> supplier = () -> {
-            throw new RuntimeException();
+            throw new TestException();
         };
-        Result<?, RuntimeException> result = Result.of(supplier, RuntimeException.class);
+        Result<?, TestException> result = Result.of(supplier, TestException.class);
         assertFalse(result.isSuccess());
         assertTrue(result.isFailure());
         assertNull(result.get());
