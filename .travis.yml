@@ -1,0 +1,11 @@
+language: java
+
+jdk:
+  - oraclejdk11
+
+script:
+  - ./gradlew assemble
+  - ./gradlew cleanTest test
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
